@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Oxygen", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+:root{
+    --color-background: #0f0f0f;
+    --color-white: #F5F5F5;
+    --color-blue: #1474b4;
+
+}
+body{
+    background-color: var(--color-background);
+    color: var(--color-white);
+}
+a{
+    color: var(--color-blue);
+}
+/* compo de video personalizado */
+.hero{
+    /* uma propriedade que empilha os elemento um embaixo do outro */
+    position: relative;
+    /* min sera uma unidade de medida minima para caber os elementos em exibixao */
+    min-height: 100vh;
+    /* degrade do video, do preto subindo */
+    background: linear-gradient(rgba(0,0,0,0.1), var(--color-background) );
+}
+.hero__background{
+    width: 100%;
+    height: 100vh;
+    /* uma propriedade de manipular o elemento para caber no site no background do html */
+    object-fit: cover;
+    top: 0;
+    position: absolute;
+    /* z index manipula o objeto para tras ficando como background */
+    z-index: -10;
+}
+.hero__foreground{
+    color: var(--color-white);
+    text-align: center;
+    padding-top: 40vh;
+}
+/* campo de texto do video personalizado */
+.hero__title{
+    font-size: 5rem;
+    font-weight: 300;
+}
+.hero__text{
+    margin-top:2rem ;
+    text-transform: uppercase;
+    /* letter spacing deixa unidade de pixel proporcional ao texto de cima exibido */
+    letter-spacing:0.5rem ;
+}
+/* campo de texto das imagens personalizado */
+.section{
+    /* overflow hiiden serve para ocultar a barra de rolagem da imagem exibida mostrada */
+    overflow: hidden;
+    padding: 0 8rem;
+    text-align: center;
+}
+.section__title{
+    font-size: 3rem;
+    font-weight: 300;
+    margin-top: 4rem auto;
+}
+/* campo da imagem 1 personalizada */
+.section__img,
+.section__img-inline{
+    width: 100%;
+    border-radius: .75rem;
+    /* eixo x = 0, eixo y = 1rem, blur efeito de embassamento, expansao/recuo cor = rgba do elemento aplicado */
+    box-shadow: 0 1rem 2rem -0.5rem rgba(20,116,180, 0.25);
+    object-fit: cover;
+    /* a imagem selecionada vai começar pelo top */
+    object-position: top;
+    max-height: 30rem;
+}
+/* campo do texto abaixo da imagem 1 personalizado */
+.section__text,
+.section__text-inline{
+    font-size: 1.25rem;
+    line-height: 1.75;
+    margin: 4rem auto;
+}
+/* campo da imagem 2 personalizado */
+.section__img-inline {
+    /* bordas da imagem 2 personalizada */
+    border-top-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    /* float empurra imagem para os angulos, ele sai do fluxo do html padrao e pode ser direcionado para qualquer angulo da seçao colocada */
+    float: left;
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+    height: 25rem;
+    width: 20rem;
+}
+/* campo de texto da imagem 2 personalizado */
+.section__text-inline {
+    margin-top: 6rem;
+    text-align: left;
+}
+
+.section__text-inline > p {
+    margin-top: 1.5rem;
+}
+/* campo da imagem 3 personalizado */
+#hangouts img {
+    /* posiçao centralizada */
+    object-position: center;
+}
+/* campo da galeria personalizado */
+.gallery__img {
+    border-radius: .75rem;
+    height: 16rem;
+    width: 16rem;
+    object-fit: cover;
+    /* transform manipula os efeitos da imagem, rotaçao e espaçamento das imagens */
+    transform: rotate(-2deg); /* deg = degrees */
+}
+/* campo com posiçao relativa sem quebra de linha nas imagens */
+.gallery__img-wrapper {
+    display: inline-block;
+    position: relative;
+}
+/* campo de espaçamento personalizado */
+.gallery__img-wrapper + .gallery__img-wrapper {
+    margin-left: 3rem;
+    margin-top: 3rem;
+}
+/* campo de rotaçao entre as imagens espaçada */
+.gallery__img-wrapper:nth-child(even) > .gallery__img {
+    top: 1rem;
+    transform: rotate(2deg);
+}
+/* campo de espaçamento personalizado entre as imagens da galeria */
+.gallery__img-wrapper::after {
+    content: "";
+    background-color: rgb(228, 26, 26);
+    border-radius: 999px;
+    display: block;
+    height: 1.25rem;
+    width: 1.25rem;
+    /* position absoluto ele sera calculado ao topo de uma posiçao relativa definida */
+    position: absolute;
+    top: 0.25rem;
+    right: 1rem;
+}
+/* campo da bolinha da imagem posicionada para esquerda */
+.gallery__img-wrapper:nth-child(even)::after {
+    left: 1rem;
+}
+/* campo de rodape */
+footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    text-align: center;
+}
